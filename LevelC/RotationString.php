@@ -14,8 +14,11 @@ class RotationString
      */
     public static function isRotation($s1, $s2)
     {
-        /** @TODO */
-
+        $pivot = $s2[0];
+        $array = explode($pivot, $s1, 2);
+        $test = $pivot . $array[1] . $array[0];
+        if (strcmp($test, $s2) === 0)
+            return true;
         return false;
     }
 
