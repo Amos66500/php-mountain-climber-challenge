@@ -33,14 +33,19 @@ class Difference
         // @ TODO
         $lenA = strlen($this->a);
         $lenB = strlen($this->b);
-
-        for ($i = 1; $i <= $lenA; ++$i) {
-            for ($j = 1; $j <= $lenB; ++$j) {
-                $c = ($this->a[$i - 1] === $this->b[$j - 1]) ? 0 : 1;
-                $matrix[$i][$j] = 0;
+        $test = 0;
+        if ($lenA <= $lenB) {
+            $test = $lenA;
+        }
+        else {
+            $test = $lenB;
+        }
+        for ($i = 1; $i <= $test; ++$i) {
+            if ($this->a[$i - 1] !== $this->b[$i - 1]) {
+                    $this->cost += 1;
             }
         }
-
-        return $matrix[$lenA][$lenB];
+        $this->cost += abs($lenA - $lenB);
+        return $this->cost;
     }
 }
