@@ -22,8 +22,19 @@ class Bobby
      */
     public function giveMoney($price)
     {
-        /** @TODO */
-
+        $this->computeTotal();
+        if ($price <= $this->total) {
+            foreach($this->wallet as $elem) {
+                if (is_int($elem)) {
+                    if ($elem == $price) {
+                        $pos = array_search($elem, $this->wallet);
+                        unset($pos);
+                        return true;
+                    }
+                }
+            }
+            return true;
+        }
         return false;
     }
 
