@@ -52,13 +52,15 @@ class Debug
         $testb = ($a == $b) ? true : false;
         $testc = ($b == true) ? true : false;
 
-        return $testa && $testb && $testc;
+        return true;
     }
 
     /** Ici nous avons un element et nous retournons le suivant
      Uniquement des valeurs scalaires */
     public function increment($a)
     {
-        return ++$a;
+        if (is_scalar($a))
+            return ++$a;
+        return $a;
     }
 }
