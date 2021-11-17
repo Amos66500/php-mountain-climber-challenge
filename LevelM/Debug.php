@@ -38,10 +38,7 @@ class Debug
             'foo' => 'foo',
         );
 
-        return array(
-            'return' => $array1 === $array2,
-            'cheat' => $array1['token'],
-        );
+        return $array1 == $array2;
     }
 
     /** Il n'y a rien à faire ici... juste à lire pour le fun
